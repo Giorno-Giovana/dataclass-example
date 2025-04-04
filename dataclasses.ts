@@ -47,7 +47,7 @@ export class User extends Data implements IUser {
   }
 }
 
-class Post extends Data implements IPost {
+export class Post extends Data implements IPost {
   userId: number = 0;
   id: number = 0;
   title: string = "";
@@ -69,10 +69,14 @@ class Post extends Data implements IPost {
   }
 }
 
-class Comment extends Data implements IComment {
+export class Comment extends Data implements IComment {
   postId: number = 0;
   id: number = 0;
   name: string = "";
   email: string = "";
   body: string = "";
+
+  static new(comment: IComment) {
+    return Comment.create(comment);
+  }
 }
